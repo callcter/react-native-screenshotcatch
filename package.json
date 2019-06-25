@@ -1,17 +1,28 @@
 
 {
   "name": "react-native-screenshotcatch",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "A ReactNative Tool for catch Screen Shot Event",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "screen-shot",
+    "screen-capture",
+    "ios",
+    "android"
   ],
-  "author": "",
-  "license": "",
+  "author": {
+    "name": "callcter",
+    "email": "sharpliuzigu@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:callcter/react-native-screenshotcatch.git"
+  },
   "peerDependencies": {
     "react-native": "^0.41.2"
   }

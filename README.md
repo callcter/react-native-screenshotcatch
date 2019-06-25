@@ -34,12 +34,49 @@
       compile project(':react-native-screenshotcatch')
   	```
 
+## Config
+
+#### Android
+
+```
+// MainActivity.java
+import com.dreamser.screenshotcatch.RNScreenshotcatchModule;
+public class MainActivity extends ReactActivity {
+   @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ScreenShotShareModule.initScreenShotShareSDK(this);  // here
+    }
+    // ...other code
+}
+```
+
+add
 
 ## Usage
 ```javascript
-import RNScreenshotcatch from 'react-native-screenshotcatch';
+import RNScreenshotcatchUtil from 'react-native-screenshotcatch';
 
-// TODO: What to do with the module?
-RNScreenshotcatch;
+export default class Root extends React.Component{
+	componentWillMount(){
+		ScreenShotShareUtil.startListener(res => {
+      if(res && res.code === 200){
+        // success
+      }else{
+				// fail
+      }
+    })
+	}
+	componentWillUnmount(){
+    ScreenShotShareUtil.stopListener()
+  }
+}
+
 ```
-  
+
+## Other API
+
+Judge Android phone has NavigationBar
+```
+const hasBar = await ScreenShotShareUtil.hasNavigationBar()
+```
