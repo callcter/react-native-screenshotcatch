@@ -137,7 +137,7 @@ public class RNScreenshotcatchModule extends ReactContextBaseJavaModule {
             Log.d(TAG, e.toString());
             WritableMap map = Arguments.createMap();
             map.putInt("code", 500);
-            sendEvent(this.reactContext, "ScreenShotShare", map);
+            sendEvent(this.reactContext, "Screenshotcatch", map);
             e.printStackTrace();
         } finally {
             if (cursor != null && !cursor.isClosed()) {
@@ -157,7 +157,7 @@ public class RNScreenshotcatchModule extends ReactContextBaseJavaModule {
             Log.d(TAG, "Not screenshot event");
             WritableMap map = Arguments.createMap();
             map.putInt("code", 500);
-            sendEvent(this.reactContext, "ScreenShotShare", map);
+            sendEvent(this.reactContext, "Screenshotcatch", map);
         }
     }
 
@@ -245,7 +245,7 @@ public class RNScreenshotcatchModule extends ReactContextBaseJavaModule {
     // 保存截屏的bitmap为图片文件并返回路径
     private void saveBitmap(Bitmap bitmap){
         Long time = System.currentTimeMillis();
-        String path = getSystemFilePath() + "/screen-shot-" + time + ".png";
+        String path = getSystemFilePath() + "/screen-shot-catch" + time + ".png";
         Log.d(TAG, path);
         File filePic;
         WritableMap map = Arguments.createMap();
@@ -261,14 +261,14 @@ public class RNScreenshotcatchModule extends ReactContextBaseJavaModule {
             fos.close();
             map.putInt("code", 200);
             map.putString("uri", filePic.getAbsolutePath());
-            sendEvent(this.reactContext, "ScreenShotShare", map);
+            sendEvent(this.reactContext, "Screenshotcatch", map);
             // 强制关闭软键盘
             ((InputMethodManager) ma.getSystemService(reactContext.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(ma.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }catch(IOException e){
             Log.d(TAG, e.toString());
             e.printStackTrace();
             map.putInt("code", 500);
-            sendEvent(this.reactContext, "ScreenShotShare", map);
+            sendEvent(this.reactContext, "Screenshotcatch", map);
         }
     }
 }
