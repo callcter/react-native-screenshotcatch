@@ -263,7 +263,11 @@ public class RNScreenshotcatchModule extends ReactContextBaseJavaModule {
             map.putString("uri", filePic.getAbsolutePath());
             sendEvent(this.reactContext, "Screenshotcatch", map);
             // 强制关闭软键盘
-            ((InputMethodManager) ma.getSystemService(reactContext.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(ma.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            try{
+                ((InputMethodManager) ma.getSystemService(reactContext.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(ma.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            }catch(java.lang.NullPointerException e){
+                Log.d(TAG, e.toString());
+            }
         }catch(IOException e){
             Log.d(TAG, e.toString());
             e.printStackTrace();
