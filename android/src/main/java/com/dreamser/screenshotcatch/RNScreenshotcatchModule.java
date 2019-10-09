@@ -45,7 +45,7 @@ public class RNScreenshotcatchModule extends ReactContextBaseJavaModule {
 
     /** 读取媒体数据库时需要读取的列 */
     private static final String[] MEDIA_PROJECTIONS =  {
-        MediaStore.Images.ImageColumns.DATA,
+        MediaStore.Images.ImageColumns.TITLE,
         MediaStore.Images.ImageColumns.DATE_TAKEN,
     };
     /** 内部存储器内容观察者 */
@@ -124,7 +124,7 @@ public class RNScreenshotcatchModule extends ReactContextBaseJavaModule {
             }
 
             // 获取各列的索引
-            int dataIndex = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+            int dataIndex = cursor.getColumnIndex(MediaStore.Images.ImageColumns.TITLE);
             int dateTakenIndex = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATE_TAKEN);
 
             // 获取行数据
