@@ -1,6 +1,6 @@
 {
   "name": "react-native-screenshotcatch",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A ReactNative Tool for catch Screen Shot Event",
   "homepage": "https://github.com/callcter/react-native-screenshotcatch",
   "main": "index.js",
