@@ -9,9 +9,13 @@
 
 #### iOS
 
-add this to podfile
+RN version >= 0.60
+
+autolink
+
+RN Version < 0.60
 ```
-pod 'RNScreenshotcatch', :path => '../node_modules/react-native-screenshotcatch/ios/RNScreenshotcatch.podspec'
+pod 'RNScreenshotcatch', :path => '../node_modules/react-native-screenshotcatch'
 ```
 
 #### Android
