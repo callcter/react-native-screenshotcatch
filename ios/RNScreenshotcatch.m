@@ -17,6 +17,10 @@ RCT_EXPORT_METHOD(startListener){
   [self addScreenShotObserver];
 }
 
+RCT_EXPORT_METHOD(stopListener){
+  [self removeScreenShotObserver];
+}
+
 - (void)addScreenShotObserver{
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getScreenShot:) name:UIApplicationUserDidTakeScreenshotNotification object:nil];
 }
