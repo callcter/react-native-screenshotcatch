@@ -1,5 +1,5 @@
 
-import { NativeModules, NativeEventEmitter, DeviceEventEmitter } from 'react-native'
+import { NativeModules, NativeEventEmitter, DeviceEventEmitter, Platform } from 'react-native'
 
 let screenShotEmitter = undefined
 
@@ -7,7 +7,7 @@ class RNScreenshotcatchUtil {
   static startListener(callback){
     const module = NativeModules.RNScreenshotcatch
     screenShotEmitter && screenShotEmitter.removeAllListeners('Screenshotcatch')
-    screenShotEmitter = Adapter.isIOS ? new NativeEventEmitter(module) : DeviceEventEmitter
+    screenShotEmitter = Platform.OS === "ios" ? new NativeEventEmitter(module) : DeviceEventEmitter
     screenShotEmitter.addListener('Screenshotcatch', (data) => {
       if(callback){
         callback(data)
@@ -24,7 +24,7 @@ class RNScreenshotcatchUtil {
   }
 
   static hasNavigationBar(){
-    if(!Adapter.isIOS){
+    if(!Platform.OS === "ios"){
       screenShotEmitter && screenShotEmitter.removeAllListeners('Screenshotcatch')
       const screenShotEmitter = NativeModules.RNScreenshotcatch
       return screenShotEmitter.hasNavigationBar()
