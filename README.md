@@ -1,6 +1,11 @@
 
 # react-native-screenshotcatch
 
+## Warning
+
+- Apple audit specification: Screen capture not allowed to block content
+- It's not compatible to some Android 10 devices
+
 ## Getting started
 
 `$ npm install react-native-screenshotcatch --save`
